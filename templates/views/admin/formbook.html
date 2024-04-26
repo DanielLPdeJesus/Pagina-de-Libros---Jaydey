@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/librobusqueda.css">
+    <title>Libros</title>
+    {% block bookadmin %}
+    {% include 'layouts/BookHeaderAdmin.html' %}
+    {% endblock %}
+</head>
+<body>
+{% block contenido %}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Agregar nuevos libros</h1>
+      <p class="lead text-muted">Revisar bien los detalles de los libros</p>
+    </div>
+  </div>
+</section> 
+
+<div class="container">
+  
+  <form action="/sesion/libros" method="post">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="form6Example1" class="form-control" name="titulo" />
+          <label class="form-label" for="form6Example1">Titulo del libro</label>
+        </div>
+      </div>
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="form6Example2" class="form-control" name="autor"/>
+          <label class="form-label" for="form6Example2">Autor</label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="form6Example3" class="form-control" name="fecha" />
+      <label class="form-label" for="form6Example3">Fecha de publicación</label>
+    </div>
+  
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="form6Example4" class="form-control" name="descarga" />
+      <label class="form-label" for="form6Example4">link de descarga</label>
+    </div>
+  
+    <!-- Email input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="form6Example5" class="form-control" name="recomendacion" />
+      <label class="form-label" for="form6Example5">Recomendación</label>
+    </div>
+  
+    <!-- option input -->
+    <div class="form-group">
+      <label for="banco">Categoria:</label>
+      <select class="form-control" id="categoria" name="categoria" required>
+          <option value="" disabled selected>Seleccione la categoria</option>
+          <option value="terror">Terror</option>
+          <option value="desarrollo personal">Desarrollo personal</option>
+          <option value="libro de autoayuda">Libro de autoayuda</option>
+          <option value="accion">Acción</option>
+          <option value="drama">Drama</option>
+          <option value="ficción">Ficción</option>
+          <option value="romance">Romance</option>
+          <option value="historia">Historia</option>
+          <option value="poesia">Poesia</option>
+          <option value="misterio">Misterio</option>
+      </select>
+    </div>
+  
+    <!-- Message input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <textarea class="form-control" id="form6Example7" rows="4" name="descripcion"></textarea>
+      <label class="form-label" for="form6Example7" >Descripción del Libro</label>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Link de portada del libro</label>
+      <input type="text" class="form-control-file" id="exampleFormControlFile1" name="file">
+    </div>
+
+    <div class="text-center">
+      <input type="submit" class="btn btn-primary py-md-3 px-md-5 mt-2">
+  </div>
+    
+  </form>
+</div>
+{% endblock%}
+
+</body>
+
+{% block footer %}
+{% include 'layouts/footer.html' %}
+{% endblock %}
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/librobusqueda.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+    <title>Home</title>
+    {% block bookadmin %}
+    {% include 'layouts/BookHeaderAdmin.html' %}
+    {% endblock %}
+</head>
+<body>
+{% block contenido %}
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Libros Recien Añadidos</h1>
+      </div>
+      <p>
+        <a href="/formbook" class="btn btn-primary my-2">Agregar Libros</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="libros-container">
+        <!-- Aquí se agregarán los libros recuperados de Firebase -->
+      </div>
+    </div>
+  </div>
+
+</main> 
+
+<!-- Modal de edición de libro -->
+<div class="modal fade" id="editarLibroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Libro</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formularioEditarLibro">
+          <input type="hidden" id="libroIdEditar">
+          <div class="form-group">
+            <label for="tituloEditar">Título:</label>
+            <input type="text" class="form-control" id="tituloEditar" required>
+          </div>
+          <div class="form-group">
+            <label for="autorEditar">Autor:</label>
+            <input type="text" class="form-control" id="autorEditar" required>
+          </div>
+          <div class="form-group">
+            <label for="fechaEditar">Fecha:</label>
+            <input type="text" class="form-control" id="fechaEditar" required>
+          </div>
+          <div class="form-group">
+            <label for="descargaEditar">Descarga:</label>
+            <input type="text" class="form-control" id="descargaEditar" required>
+          </div>
+          <div class="form-group">
+            <label for="recomendacionEditar">Recomendación:</label>
+            <input type="text" class="form-control" id="recomendacionEditar" required>
+          </div>
+          <div class="form-group">
+            <label for="categoriaEditar">Categoría:</label>
+            <input type="text" class="form-control" id="categoriaEditar" required>
+          </div>
+          <div class="form-group">
+            <label for="descripcionEditar">Descripción:</label>
+            <textarea class="form-control" id="descripcionEditar" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="/static/js/datosmostrar.js"></script>
+
+{% endblock%}
+
+</body>
+{% block footer %}
+{% include 'layouts/footer.html' %}
+{% endblock %}
+</html>

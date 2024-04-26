@@ -1,0 +1,55 @@
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+/*aqui solo se hace el espacio entre la caja y el icono*/
+
+.search-icon {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.search-container {
+    display: none;
+}
+
+.search-container input[type="text"] {
+    width: 200px;
+    /* Ancho de buscar */
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    transition: width 0.3s ease;
+}
+
+
+/* hace la accion de activar el cuadro */
+
+.search-container.active {
+    display: block;
+}
+
+
+/* hace las acciones de la lupa*/
+
+@media (max-width: 991.98px) {
+    .search-wrapper {
+        margin-left: 0;
+    }
+}
+
+#searchWrapper {
+    max-width: 300px;
+    margin: auto;
+}
+
+
+/* intento de centrar los libros */
+
+.centrado {
+    text-align: center;
+    margin: 0 auto;
+}
