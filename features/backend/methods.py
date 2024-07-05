@@ -4,13 +4,17 @@ from firebase_admin import credentials
 
 app = Blueprint('sesion', __name__, url_prefix='/sesion')
 
-cred_dict = {
-}
 
-cred = credentials.Certificate(cred_dict)
 
 
 config = {
+    "apiKey": "AIzaSyAUrSWt7t3kwGt0o95AmuZEtNGT48KOj5Q",
+    "authDomain": "jaydeybd.firebaseapp.com",
+    "databaseURL": "https://jaydeybd-default-rtdb.firebaseio.com",
+    "projectId": "jaydeybd",
+    "storageBucket": "jaydeybd.appspot.com",
+    "messagingSenderId": "442545822718",
+    "appId": "1:442545822718:web:dcb893c99bf8a45baabeaf"
 }
 
 firebase = pyrebase.initialize_app(config)
@@ -130,7 +134,6 @@ def libros():
         descripcion = request.form['descripcion'],
         file = request.form['file']
 
-        # Almacena los datos en Firebase
         datos = {
             "titulo": titulo,
             "autor": autor,

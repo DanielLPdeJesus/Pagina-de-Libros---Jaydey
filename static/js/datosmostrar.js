@@ -1,6 +1,12 @@
 
      const firebaseConfig = {
-    //configuracion bd
+        "apiKey": "AIzaSyAUrSWt7t3kwGt0o95AmuZEtNGT48KOj5Q",
+        "authDomain": "jaydeybd.firebaseapp.com",
+        "databaseURL": "https://jaydeybd-default-rtdb.firebaseio.com",
+        "projectId": "jaydeybd",
+        "storageBucket": "jaydeybd.appspot.com",
+        "messagingSenderId": "442545822718",
+        "appId": "1:442545822718:web:dcb893c99bf8a45baabeaf"
   };
 
 
