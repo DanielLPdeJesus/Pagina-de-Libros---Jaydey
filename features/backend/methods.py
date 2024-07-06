@@ -4,9 +4,6 @@ from firebase_admin import credentials
 
 app = Blueprint('sesion', __name__, url_prefix='/sesion')
 
-
-
-
 config = {
     "apiKey": "AIzaSyAUrSWt7t3kwGt0o95AmuZEtNGT48KOj5Q",
     "authDomain": "jaydeybd.firebaseapp.com",
@@ -31,11 +28,9 @@ def iniciar_sesion():
             user = auth.sign_in_with_email_and_password(email, password)
             user_info = auth.get_account_info(user['idToken'])
 
-            # Verifica si el correo electrónico ha sido verificado
             if user_info['users'][0]['emailVerified']:
                 session['usuario'] = email
                 
-                # Obtener el rol del usuario desde la base de datos
                 user_data = db.child('users').child(user['localId']).get().val()
                 if user_data.get('role') == 'admin':
                     session['admin'] = email
@@ -92,7 +87,6 @@ def recuperacion():
     if request.method == 'POST':
         email = request.form['email']
 
-        # Envía la solicitud de recuperación de contraseña a Firebase
         try:
             auth.send_password_reset_email(email)
             message = "Se ha enviado un enlace de restablecimiento de contraseña a tu correo electrónico."
